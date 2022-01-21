@@ -17,9 +17,49 @@ newFunction2('Stivi', '55', 'MX')
 let hi = 'Hola'
 let wordl = 'Mundo'
 
-// forma tradicional
-console.log(hi + ' ' + wordl);
+// FORMAS DE ASIGNACION
+// forma tradicional para pasar a otra linea se usa \n
+console.log(hi + ' \n' + wordl);
 // ES6 permite tener espacios agrupar strings y variables
+// Llamados templates literals
 console.log(`${hi}
 
-            ${wordl}`);
+${wordl}`);
+
+let lorem = `estamos usando template literals por medio de la comilla francesa
+hacemos salgo de linea sin necesida de \n si la ponemos igual sirve`
+console.log(lorem);
+
+let person = {
+  'name': 'Jonny',
+  'lastName': 'Bravo',
+  'age': 32,
+  'country': 'VEN '
+
+}
+//Forma de llamar atributos de objetos
+console.log(person.name, person.age);
+// Llamar atributos de objetos con desestructuracion de ES6
+let{ lastName, country} = person
+console.log(lastName, country);
+
+// Operador de propagacion (Spread Operator)
+let teamUno = ['Raspu', 'Richard', 'Mateo']
+let teamDos = ['Zurdo', 'Kaki', 'Postilla']
+// Creamos un nuevo array agregando una copia de los otros dos arrays
+let education =  ['Goliat', ...teamUno, ...teamDos]
+console.log(education);
+
+// Let, var , const
+// Var
+{let varLet = 'Solo disponible dentro de este scope'; console.log(varLet)}
+console.log(varLet);//dara error si intentamos llamarla desde fuera
+// Let
+// Permite reasingnar pero respeta el scope
+{var varVar = 'Estare disponible de forma global sin importar el scope'};
+console.log(varVar);
+// Const
+// No podremos reasignarla, dara error
+const a = 'Soy una a y no me puedes reasignar'
+a = 'jaja te reasignare'
+console.log(`Veamos que paso con const ${a}`);
