@@ -105,3 +105,61 @@ helloPromise()
   .then(() => console.log('Hola soy un then significa que reponse paso en true'))
   .catch(error => console.log(error))
 
+// Clases ES6,
+// hay una clase con un constructor que asigna dentro del scope dos variables
+// luego un metodo retornara la suma de esos dos valores que recibe
+class Calculator {
+  constructor(){
+    this.valueA = 0;
+    this.valueB = 0;
+  }
+  sum(valueA, valueB){
+    this.valueA;
+    this.valueB;
+    return this.valueA + this.valueB}
+}
+
+const calc = new Calculator()
+console.log(calc.sum(6,6));
+
+// Modudulos export e import
+// import myImport from './module.js' esta importacion no funcionara para usar code runer
+// importamos (traemos) la funcion
+const hello = require('./module');
+console.log(hello());
+
+// Funciones generadoras
+// ensegida de la palabra reservada function colocaremos un asterisco para indicar que es generadora
+// y asi podra usar las palabras reservadas
+    // .yield para pausar la ejecucion de la funcion
+    // .next para hacer que la funcion generadora avance
+function* iamGenerator() {
+  if (true) {
+    yield 'Hello, '
+  } if (true) {
+    yield 'Wordl'
+  }
+}
+const genratorFunction = iamGenerator()
+// luego del valor de next queremos optener el valor que esta retornado usamos .value
+console.log(genratorFunction.next().value);
+console.log(genratorFunction.next().value);
+console.log(genratorFunction.next().value);//resultado undefinded ya que no hay mas valores
+
+// Function generator with sequence Fibonacci
+function* fibonacci() {
+  let a = 1;
+  let b = 1
+  yield a;
+  yield b;
+  while (true) {
+      b_ = b;
+      b = a + b
+      a = b_;
+      yield b
+  }
+}
+let fib = fibonacci();
+for (let i = 0; i < 10; i++) {
+  console.log(fib.next().value);
+}
