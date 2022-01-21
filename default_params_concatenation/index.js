@@ -63,3 +63,45 @@ console.log(varVar);
 const a = 'Soy una a y no me puedes reasignar'
 a = 'jaja te reasignare'
 console.log(`Veamos que paso con const ${a}`);
+
+// Objetos y como asignarlos
+let name = 'Jonny'
+let age = 45
+
+// obj1 = {name:name, age:age} Este es el estandar ES5 teniamos que colocar mas elementos
+// Ahora ES6 lo simplifica
+obj2 = {name, age}
+console.log(obj2);
+
+// Arraw functions funciones de flecha
+const names = [{name:'Rata', age:27},{name:'Negro', age:23},{name:'Mateo', age:29}]
+// ES5 lo hariamos asi
+let listOfNames = names.map(function (item) {
+  console.log(item.name);
+})
+// ES6 Arrow functions
+let listOfNames1 = names.map(item => { console.log(item.name);})
+// algunas formas de como veras Arrow functions
+// const listOfNames2 = (name, age, country) => {  ...  }
+// const listOfNAmes3 = name => {  ...  }
+// const sum = num => num + num  Aqui tenemos un return implicito
+
+// Promesas
+// Vienen a resolver el problema del callback hell
+// Recibe como parametro una arrow funtion con dos valores, dentro los evalua con una condicional y retorna una promesa
+const helloPromise = () => {
+  return new Promise((resolve, reject) => {
+    if (true) {
+      resolve('Hey i am resolve')
+    } else {
+      reject('Upss what`s up')
+    }
+  })
+}
+// Al invocarla podremos agregar .then si la respuesta es true, podremos encadenar varios
+// Y .catch si la respuesta es false
+helloPromise()
+  .then(response=> console.log(response))//
+  .then(() => console.log('Hola soy un then significa que reponse paso en true'))
+  .catch(error => console.log(error))
+
