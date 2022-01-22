@@ -36,7 +36,7 @@ console.log(string.padEnd(12, " ----->"));
 // Tenemos una promesa para trabajar Async Await
 const helloPromise = () => {
   return new Promise((resolve, reject) => {
-    // Alteramos la condicion para ver como se captura el error
+    // Alteramos la condicion para ver como se captura el error con try catch
     false
       ? setTimeout(() => resolve("Hello Promise later three seconds"), 3000)
       : reject(new Error("Test Error"));
